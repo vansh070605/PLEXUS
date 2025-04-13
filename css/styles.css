@@ -1,0 +1,141 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Navigation styles */
+  nav {
+    background-color: #004080;
+    padding: 1em;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    position: relative;
+    margin: 0 1em;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em;
+  }
+  
+  nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 2.5em;
+    left: 0;
+    background-color: #0059b3;
+    padding: 0.5em 0;
+    border-radius: 4px;
+  }
+  
+  nav ul li:hover ul {
+    display: block;
+  }
+  
+  nav ul li ul li {
+    margin: 0;
+  }
+  
+  nav ul li ul li a {
+    padding: 0.5em 1em;
+    display: block;
+  }
+  
+  /* Hero section */
+  .hero {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+    color: black;
+    padding: 4em 2em;
+    text-align: center;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.75em 1.5em;
+    background-color: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  /* Clients section */
+  .clients {
+    padding: 2em;
+    text-align: center;
+  }
+  
+  .client-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+  }
+  
+  .client-logos img {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  /* Products section */
+  .products {
+    padding: 2em;
+    background-color: #e6f2ff;
+  }
+  
+  .product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .card img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+  
+  .card h3 {
+    margin: 1em 0 0.5em;
+  }
+  
+  .card p {
+    font-size: 0.9em;
+    margin-bottom: 1em;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #004080;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+  }
+  
