@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Security Systems and Services" />
+  <title>Plexus | Security Solutions</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="js/scripts.js" defer></script>
+</head>
+<body>
+  <header class="main-header">
+    <h1>Plexus</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products/access-control.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+  </div>
+  
+
+  <section class="hero">
+    <div id="particles-js"></div> <!-- Background for particles.js -->
+    <div class="hero-content">
+      <h1 id="typewriter"></h1> <!-- Dynamic typewriter text -->
+      <p class="sub">Say goodbye to blind spots and weak links in your security.</p>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Security Systems & Services. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    // Initialize AOS (Animation On Scroll) library
+    AOS.init({ duration: 1000 });
+  
+    
+    // Load particles.js configuration
+    particlesJS('particles-js', {
+  particles: {
+    number: {
+      value: 100,
+      density: {
+        enable: true,
+        value_area: 800
+      }
+    },
+    color: {
+      value: '#00e0d1' // Particle color set here
+    },
+    shape: {
+      type: 'circle'
+    },
+    opacity: {
+      value: 0.6,
+      random: true,
+      anim: {
+        enable: true,
+        speed: 1,
+        opacity_min: 0.1,
+        sync: false
+      }
+    },
+    size: {
+      value: 5,
+      random: true,
+      anim: {
+        enable: true,
+        speed: 5,
+        size_min: 0.1,
+        sync: false
+      }
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: '#00e0d1',
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 2,
+      direction: 'none',
+      random: true,
+      straight: false,
+      out_mode: 'out',
+      bounce: false,
+      attract: {
+        enable: false
+      }
+    }
+  },
+  interactivity: {
+    detect_on: 'canvas',
+    events: {
+      onhover: {
+        enable: true,
+        mode: 'repulse'
+      },
+      onclick: {
+        enable: true,
+        mode: 'push'
+      }
+    },
+    modes: {
+      repulse: {
+        distance: 100,
+        duration: 0.4
+      },
+      push: {
+        particles_nb: 4
+      },
+      grab: {
+        distance: 150,
+        line_linked: {
+          opacity: 1
+        }
+      },
+      bubble: {
+        distance: 200,
+        size: 10,
+        duration: 1,
+        opacity: 0.8,
+        speed: 10
+      }
+    }
+  },
+  retina_detect: true
+});
+
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+window.addEventListener('mousemove', (e) => {
+  const { clientX: x, clientY: y } = e;
+
+  cursorDot.style.top = `${y}px`;
+  cursorDot.style.left = `${x}px`;
+
+  cursorOutline.style.top = `${y}px`;
+  cursorOutline.style.left = `${x}px`;
+});
+
+// Select all interactive elements
+const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+
+interactiveElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursorOutline.classList.add('hovered');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorOutline.classList.remove('hovered');
+  });
+});
+
+const currentPath = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll(".main-header nav a");
+
+  navLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("active");
+    }
+  });
+
+  </script>
+  
+</body>
+</html>
