@@ -3,22 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Security Systems and Services" />
-  <title>Plexus | Security Solutions</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta name="description" content="Plexus Security Systems | About Us" />
+  <title>Plexus | About Us</title>
+  <link rel="stylesheet" href="css/about.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <script src="js/scripts.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <style>
+    /* Modern card styling */
+    .about-box, .mission-box, .vision-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-box:hover, .mission-box:hover, .vision-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 224, 209, 0.3);
+    }
+
+    .about-video iframe {
+      width: 100%;
+      height: 315px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #00e0d1;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #00b5a0;
+      transform: scale(1.05);
+    }
+
+    .magnetic {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      will-change: transform;
+    }
+
+    /* Cursor effects */
+    #cursor, #cursor-glow {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #cursor {
+      width: 8px;
+      height: 8px;
+      background: #00e0d1;
+    }
+
+    #cursor-glow {
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 224, 209, 0.3);
+    }
+
+    .cursor-trail {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: rgba(0, 224, 209, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fadeOut 0.2s linear forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(2);
+      }
+    }
+
+    /* Responsive */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      flex: 1 1 50%;
+    }
+
+    .about-video {
+      flex: 1 1 45%;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
   <header class="main-header">
-    <h1><a href="index.html">Plexus</a></h1>
+    <h1><a href="index.html" class="magnetic">Plexus</a></h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="access-control.html">Products</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" class="magnetic">Home</a>
+      <a href="about.html" class="active magnetic">About</a>
+      <a href="access-control.html" class="magnetic">Products</a>
+      <a href="services.html" class="magnetic">Services</a>
+      <a href="contact.html" class="magnetic">Contact</a>
     </nav>
   </header>
 
@@ -26,156 +137,119 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
   </div>
-  
 
   <section class="hero">
-    <div id="particles-js"></div> <!-- Background for particles.js -->
+    <div id="particles-js"></div>
     <div class="hero-content">
-      <h1 id="typewriter"></h1> <!-- Dynamic typewriter text -->
-      <p class="sub">Say goodbye to blind spots and weak links in your security.</p>
+      <h1 data-aos="fade-up">About Plexus</h1>
+      <p data-aos="fade-up" class="subheading">Innovating security solutions for a safer tomorrow</p>
+      <a href="#about-us" class="cta-button magnetic" data-aos="fade-up">Learn More</a>
     </div>
   </section>
-  
+
+  <section id="about-us" class="about-us">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Who We Are</h2>
+        <p>With over 20 years of experience, Plexus is at the forefront of security technology, delivering innovative solutions in office automation, surveillance, and telecom.</p>
+      </div>
+
+      <div class="about-content" data-aos="fade-up">
+        <div class="about-text">
+          <div class="about-box">
+            <h3>Tailored Solutions</h3>
+            <p>Plexus is a trusted partner in enhancing security with tailored solutions for businesses of all sizes. Our product range spans surveillance, telecom, office automation, and display systems, designed for maximum efficiency and reliability.</p>
+          </div>
+          <div class="about-box">
+            <h3>Proven Track Record</h3>
+            <p>With over 3,500 satisfied clients and an extensive dealer network, we bring cutting-edge technology to every corner of India. We offer solutions that are not only advanced but also easy to implement and scale.</p>
+          </div>
+        </div>
+
+        <div class="about-video">
+          <iframe src="https://www.youtube.com/embed/your-video-link" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="our-mission" data-aos="fade-up">
+        <div class="mission-box">
+          <h3>Our Mission</h3>
+          <p>At Plexus, we aim to provide cutting-edge security solutions that ensure peace of mind, enable operational efficiency, and elevate the security standards of every business we serve.</p>
+        </div>
+      </div>
+
+      <div class="our-vision" data-aos="fade-up">
+        <div class="vision-box">
+          <h3>Our Vision</h3>
+          <p>Our vision is to become the leading global provider of smart, sustainable, and secure solutions, contributing to a safer and more connected world.</p>
+        </div>
+      </div>
+
+      <div class="cta-section" data-aos="fade-up">
+        <p>Get in touch with us to learn how we can help secure your future.</p>
+        <a href="contact.html" class="cta-button magnetic">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Security Systems & Services. All rights reserved.</p>
+    <p>&copy; 2025 Plexus Security Systems. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-    // Initialize AOS (Animation On Scroll) library
+  <script>
     AOS.init({ duration: 1000 });
-  
-    
-    // Load particles.js configuration
+
     particlesJS('particles-js', {
-  particles: {
-    number: {
-      value: 100,
-      density: {
-        enable: true,
-        value_area: 800
-      }
-    },
-    color: {
-      value: '#00e0d1' // Particle color set here
-    },
-    shape: {
-      type: 'circle'
-    },
-    opacity: {
-      value: 0.6,
-      random: true,
-      anim: {
-        enable: true,
-        speed: 1,
-        opacity_min: 0.1,
-        sync: false
-      }
-    },
-    size: {
-      value: 5,
-      random: true,
-      anim: {
-        enable: true,
-        speed: 5,
-        size_min: 0.1,
-        sync: false
-      }
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: '#00e0d1',
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 2,
-      direction: 'none',
-      random: true,
-      straight: false,
-      out_mode: 'out',
-      bounce: false,
-      attract: {
-        enable: false
-      }
-    }
-  },
-  interactivity: {
-    detect_on: 'canvas',
-    events: {
-      onhover: {
-        enable: true,
-        mode: 'repulse'
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: '#00e0d1' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.6, random: true },
+        size: { value: 5, random: true, anim: { enable: true, speed: 5 } },
+        move: { enable: true, speed: 2, direction: 'none', random: true },
+        line_linked: { enable: true, distance: 150, color: '#00e0d1', opacity: 0.4, width: 1 },
       },
-      onclick: {
-        enable: true,
-        mode: 'push'
-      }
-    },
-    modes: {
-      repulse: {
-        distance: 100,
-        duration: 0.4
-      },
-      push: {
-        particles_nb: 4
-      },
-      grab: {
-        distance: 150,
-        line_linked: {
-          opacity: 1
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' }
         }
       },
-      bubble: {
-        distance: 200,
-        size: 10,
-        duration: 1,
-        opacity: 0.8,
-        speed: 10
-      }
-    }
-  },
-  retina_detect: true
-});
+      retina_detect: true
+    });
 
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
+    // Cursor
+    const cursor = document.getElementById("cursor");
+    const cursorGlow = document.getElementById("cursor-glow");
 
-window.addEventListener('mousemove', (e) => {
-  const { clientX: x, clientY: y } = e;
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+      cursorGlow.style.left = `${e.clientX}px`;
 
-  cursorDot.style.top = `${y}px`;
-  cursorDot.style.left = `${x}px`;
+      const trail = document.createElement("div");
+      trail.classList.add("cursor-trail");
+      trail.style.top = `${e.clientY - 5}px`;
+      trail.style.left = `${e.clientX - 5}px`;
+      document.body.appendChild(trail);
+      setTimeout(() => trail.remove(), 200);
+    });
 
-  cursorOutline.style.top = `${y}px`;
-  cursorOutline.style.left = `${x}px`;
-});
-
-// Select all interactive elements
-const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
-
-interactiveElements.forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursorOutline.classList.add('hovered');
-  });
-  el.addEventListener('mouseleave', () => {
-    cursorOutline.classList.remove('hovered');
-  });
-});
-
-const currentPath = window.location.pathname.split("/").pop();
-  const navLinks = document.querySelectorAll(".main-header nav a");
-
-  navLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPath) {
-      link.classList.add("active");
-    }
-  });
-
+    // Magnetic Effect
+    const magneticItems = document.querySelectorAll('.magnetic');
+    magneticItems.forEach(item => {
+      item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        item.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+      });
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = 'translate(0, 0)';
+      });
+    });
   </script>
-  
 </body>
 </html>

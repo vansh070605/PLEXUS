@@ -306,6 +306,10 @@ align-items: center;
 transition: color 0.3s ease;
 }
 
+.main-header .logo:hover {
+color: #ff5722; /* Or your brand color */
+}
+
 /* Navigation links */
 .main-header nav {
 display: flex;
@@ -448,13 +452,6 @@ align-items: center;
 }
 
 /* Products */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
-}
-
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
