@@ -22,7 +22,7 @@
   <style>
     /* Modern card styling */
     .about-box, .mission-box, .vision-box {
-      background: #fff;
+      background: #333;
       border-radius: 20px;
       padding: 25px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -37,7 +37,7 @@
 
     .about-video iframe {
       width: 100%;
-      height: 315px;
+      height: 600px;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
@@ -150,7 +150,7 @@
   <section class="hero">
     <div id="particles-js"></div>
     <div class="hero-content">
-      <h1 data-aos="fade-up">About Plexus</h1>
+      <h1 id="typewriter"></h1>
       <p data-aos="fade-up" class="subheading">Innovating security solutions for a safer tomorrow</p>
     </div>
   </section>
@@ -175,23 +175,22 @@
         </div>
 
         <div class="about-video">
-          <iframe src="https://www.youtube.com/embed/your-video-link" frameborder="0" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/h4bUpPkIg3w?si=uE4IS_CuGQMF9imK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
 
-      <div class="our-mission" data-aos="fade-up">
+      <div class="mission-vision-wrapper" data-aos="fade-up">
         <div class="mission-box">
           <h3>Our Mission</h3>
           <p>At Plexus, we aim to provide cutting-edge security solutions that ensure peace of mind, enable operational efficiency, and elevate the security standards of every business we serve.</p>
         </div>
-      </div>
-
-      <div class="our-vision" data-aos="fade-up">
+      
         <div class="vision-box">
           <h3>Our Vision</h3>
           <p>Our vision is to become the leading global provider of smart, sustainable, and secure solutions, contributing to a safer and more connected world.</p>
         </div>
       </div>
+      
 
       <div class="cta-section" data-aos="fade-up">
         <p>Get in touch with us to learn how we can help secure your future.</p>
@@ -205,6 +204,51 @@
   </footer>
 
   <script>
+    AOS.init({ duration: 1000 });
+
+// Typewriter effect setup
+const phrases = [
+  "About Plexuss"
+];
+let i = 0;
+let j = 0;
+let currentPhrase = [];
+let isDeleting = false;
+let isEnd = false;
+
+function loop() {
+  isEnd = false;
+  document.getElementById('typewriter').innerHTML = currentPhrase.join('');
+  if (i < phrases.length) {
+    if (!isDeleting && j <= phrases[i].length) {
+      currentPhrase.push(phrases[i][j]);
+      j++;
+    }
+
+    if (isDeleting && j <= phrases[i].length) {
+      currentPhrase.pop(phrases[i][j]);
+      j--;
+    }
+
+    if (j === phrases[i].length) {
+      isEnd = true;
+      isDeleting = true;
+    }
+
+    if (isDeleting && j === 0) {
+      currentPhrase = [];
+      isDeleting = false;
+      i++;
+      if (i === phrases.length) {
+        i = 0;
+      }
+    }
+  }
+  const speed = isEnd ? 2000 : isDeleting ? 50 : 100;
+  setTimeout(loop, speed);
+}
+
+loop(); // Start the typewriter loop
     AOS.init({ duration: 1000 });
 
     particlesJS('particles-js', {

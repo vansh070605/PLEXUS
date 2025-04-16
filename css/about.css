@@ -163,6 +163,7 @@
     max-width: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    max-height: 100%;
   }
   
   .our-mission, .our-vision {
@@ -171,15 +172,24 @@
     margin-top: 4rem;
   }
   
-  .mission-box, .vision-box {
-    background: #333;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    width: 45%;
-    margin: 0 1rem;
-    transition: all 0.3s ease;
+  .mission-vision-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap; /* for mobile responsiveness */
+    margin-top: 2rem;
   }
+  
+  .mission-box,
+  .vision-box {
+    flex: 1;
+    min-width: 280px;
+    background-color: #333;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
   
   .mission-box h3, .vision-box h3 {
     font-size: 1.8rem;
