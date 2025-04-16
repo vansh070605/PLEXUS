@@ -10,6 +10,15 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate on Scroll) CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="js/scripts.js" defer></script>
   <style>
     /* Modern card styling */
     .about-box, .mission-box, .vision-box {
@@ -143,7 +152,6 @@
     <div class="hero-content">
       <h1 data-aos="fade-up">About Plexus</h1>
       <p data-aos="fade-up" class="subheading">Innovating security solutions for a safer tomorrow</p>
-      <a href="#about-us" class="cta-button magnetic" data-aos="fade-up">Learn More</a>
     </div>
   </section>
 
@@ -187,7 +195,7 @@
 
       <div class="cta-section" data-aos="fade-up">
         <p>Get in touch with us to learn how we can help secure your future.</p>
-        <a href="contact.html" class="cta-button magnetic">Contact Us</a>
+        <a href="access-control.html" class="cta-button magnetic">View Our Products</a>
       </div>
     </div>
   </section>
@@ -219,37 +227,76 @@
       retina_detect: true
     });
 
-    // Cursor
-    const cursor = document.getElementById("cursor");
-    const cursorGlow = document.getElementById("cursor-glow");
+        // Initialize AOS (Animation On Scroll) library
+        AOS.init({ duration: 1000 });
 
-    document.addEventListener("mousemove", (e) => {
-      cursor.style.top = `${e.clientY}px`;
-      cursor.style.left = `${e.clientX}px`;
-      cursorGlow.style.top = `${e.clientY}px`;
-      cursorGlow.style.left = `${e.clientX}px`;
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
 
-      const trail = document.createElement("div");
-      trail.classList.add("cursor-trail");
-      trail.style.top = `${e.clientY - 5}px`;
-      trail.style.left = `${e.clientX - 5}px`;
-      document.body.appendChild(trail);
-      setTimeout(() => trail.remove(), 200);
+window.addEventListener('mousemove', (e) => {
+  const { clientX: x, clientY: y } = e;
+
+  cursorDot.style.top = `${y}px`;
+  cursorDot.style.left = `${x}px`;
+
+  cursorOutline.style.top = `${y}px`;
+  cursorOutline.style.left = `${x}px`;
+});
+
+// Select all interactive elements
+const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+
+interactiveElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursorOutline.classList.add('hovered');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorOutline.classList.remove('hovered');
+  });
+});
+
+const currentPath = window.location.pathname.split("/").pop() || "index.html";
+const navLinks = document.querySelectorAll(".main-header nav a");
+
+navLinks.forEach(link => {
+  if (link.getAttribute("href") === currentPath) {
+    link.classList.add("active");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
+
+  window.addEventListener('mousemove', (e) => {
+    const { clientX: x, clientY: y } = e;
+    cursorDot.style.top = `${y}px`;
+    cursorDot.style.left = `${x}px`;
+    cursorOutline.style.top = `${y}px`;
+    cursorOutline.style.left = `${x}px`;
+  });
+
+  const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
     });
-
-    // Magnetic Effect
-    const magneticItems = document.querySelectorAll('.magnetic');
-    magneticItems.forEach(item => {
-      item.addEventListener('mousemove', (e) => {
-        const rect = item.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        item.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-      });
-      item.addEventListener('mouseleave', () => {
-        item.style.transform = 'translate(0, 0)';
-      });
+    el.addEventListener('mouseleave', () => {
+      cursorOutline.style.borderColor = '#00e0d1';
     });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".main-header nav a");
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === path) {
+      link.classList.add("active");
+    }
+  });
+});
   </script>
 </body>
 </html>

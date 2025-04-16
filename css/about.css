@@ -380,3 +380,46 @@
     border: 2px solid #00e0d1;
     transition: all 0.15s ease;
   }
+
+  .slider-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+  }
+  
+  body {
+    cursor: none; /* Hide the default cursor */
+  }
+  
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  .cursor-dot,
+  .cursor-outline {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00e0d1;
+  }
+  
+  .cursor-outline {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #00e0d1;
+    transition: all 0.15s ease;
+  }
