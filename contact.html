@@ -165,11 +165,7 @@ color: #fff;
 display: flex;
 align-items: center;
 transition: color 0.3s ease;
-}
-
-.main-header .logo:hover {
-color: #ff5722; /* Or your brand color */
-}
+} 
 
 /* Navigation links */
 .main-header nav {
@@ -563,7 +559,7 @@ border-bottom: 2px solid #00e0d1; /* Adds a subtle underline effect */
 }
 
 body {
-  cursor: none;
+  cursor: none; /* Hide the default cursor */
 }
 
 .custom-cursor {
@@ -600,16 +596,16 @@ body {
 </head>
 <body>
 
-    <header class="main-header">
-        <h1><a href="index.html">Plexus</a></h1>
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="products/access-control.html">Products</a>
-          <a href="services.html">Services</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <header class="main-header">
+    <h1><a href="index.html">Plexus</a></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="access-control.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
       <br>
       <br>
       <br>
@@ -680,6 +676,7 @@ body {
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
+        <li><a href="access-control.html">Products</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
@@ -688,9 +685,15 @@ body {
     <div class="footer-column" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
       <h3>Contact Information</h3>
       <p><strong>Head Office:</strong> 9223581003</p>
+      <br>
       <p><strong>Branch Office:</strong> 022-25109036</p>
+      <br>
       <p><strong>Email:</strong> <a href="mailto:info@plexussol.net">info@plexussol.net</a></p>
     </div>
+  </footer>
+
+  <footer>
+    <p>&copy; 2025 Security Systems & Services. All rights reserved.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
@@ -698,101 +701,6 @@ body {
 <script>
     // Initialize AOS (Animation On Scroll) library
     AOS.init({ duration: 1000 });
-  
-    
-    // Load particles.js configuration
-    particlesJS('particles-js', {
-  particles: {
-    number: {
-      value: 100,
-      density: {
-        enable: true,
-        value_area: 800
-      }
-    },
-    color: {
-      value: '#00e0d1' // Particle color set here
-    },
-    shape: {
-      type: 'circle'
-    },
-    opacity: {
-      value: 0.6,
-      random: true,
-      anim: {
-        enable: true,
-        speed: 1,
-        opacity_min: 0.1,
-        sync: false
-      }
-    },
-    size: {
-      value: 5,
-      random: true,
-      anim: {
-        enable: true,
-        speed: 5,
-        size_min: 0.1,
-        sync: false
-      }
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: '#00e0d1',
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 2,
-      direction: 'none',
-      random: true,
-      straight: false,
-      out_mode: 'out',
-      bounce: false,
-      attract: {
-        enable: false
-      }
-    }
-  },
-  interactivity: {
-    detect_on: 'canvas',
-    events: {
-      onhover: {
-        enable: true,
-        mode: 'repulse'
-      },
-      onclick: {
-        enable: true,
-        mode: 'push'
-      }
-    },
-    modes: {
-      repulse: {
-        distance: 100,
-        duration: 0.4
-      },
-      push: {
-        particles_nb: 4
-      },
-      grab: {
-        distance: 150,
-        line_linked: {
-          opacity: 1
-        }
-      },
-      bubble: {
-        distance: 200,
-        size: 10,
-        duration: 1,
-        opacity: 0.8,
-        speed: 10
-      }
-    }
-  },
-  retina_detect: true
-});
 
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorOutline = document.querySelector('.cursor-outline');
@@ -843,11 +751,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
   interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
-      cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-      cursorOutline.style.borderColor = '#ff6600';
     });
     el.addEventListener('mouseleave', () => {
-      cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
       cursorOutline.style.borderColor = '#00e0d1';
     });
   });

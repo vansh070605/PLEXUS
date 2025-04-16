@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plexus Products</title>
+  <link rel="stylesheet" href="../css/access.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="js/scripts.js" defer></script>
+  <style>
+    body {
+  cursor: none; /* Hide the default cursor */
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-dot,
+.cursor-outline {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00e0d1;
+}
+
+.cursor-outline {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #00e0d1;
+  transition: all 0.15s ease;
+}
+
+
+  </style>
+</head>
+<body>
+    <header class="main-header">
+      <h1><a href="index.html">Plexus</a></h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="access-control.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="custom-cursor">
+      <div class="cursor-dot"></div>
+      <div class="cursor-outline"></div>
+  </div>
+  <header class="hero">
+    <h1>Innovating Connectivity & Security for a Smarter Tomorrow</h1>
+  </header>
+  <div class="main-title">Our Product Offerings</div>
+
+  <section class="category">
+    <h2>Video Surveillance</h2>
+    <div class="scroll-container">
+      <button class="scroll-btn left" onclick="scrollList(this, -400)">&#8249;</button>
+      <ul class="product-list">
+        <li>VMS Network Video Recorder</li>
+        <li>Project Bullet Network Cameras</li>
+        <li>Mini Bullet Cameras</li>
+        <li>Project Dome Network Cameras</li>
+        <li>Mini Dome Network Cameras</li>
+        <li>PTZ IR Camera</li>
+        <li>Ruggedized IP Cameras</li>
+        <li>Turret Network Camera</li>
+        <li>VMSP Sataya Network PTZ Controller</li>
+      </ul>
+      <button class="scroll-btn right" onclick="scrollList(this, 400)">&#8250;</button>
+    </div>
+  </section>
+
+  <section class="category">
+    <h2>Access Control</h2>
+    <div class="scroll-container">
+      <button class="scroll-btn left" onclick="scrollList(this, -400)">&#8249;</button>
+      <ul class="product-list">
+        <li>COSEC PATH Reader</li>
+        <li>COSEC ARC IO800</li>
+        <li>COSEC ARC DC200P</li>
+        <li>COSEC ARGO Face</li>
+        <li>COSEC PANEL200P</li>
+        <li>COSEC ATOM Series</li>
+        <li>COSEC VEGA Series</li>
+        <li>COSEC PATH Series</li>
+        <li>COSEC ARGO Series</li>
+        <li>COSEC APTA</li>
+        <li>Accessories for COSEC</li>
+        <li>COSEC ARGO FACE</li>
+        <li>COSEC SAMAY</li>
+        <li>COSEC VYOM</li>
+        <li>COSEC CENTRA</li>
+      </ul>
+      <button class="scroll-btn right" onclick="scrollList(this, 400)">&#8250;</button>
+    </div>
+  </section>
+
+  <section class="category">
+    <h2>Telecom</h2>
+    <div class="scroll-container">
+      <button class="scroll-btn left" onclick="scrollList(this, -400)">&#8249;</button>
+      <ul class="product-list">
+        <li>SARVAM UCS</li>
+        <li>VARTA Softphone</li>
+        <li>SETU VFXTH Gateway</li>
+        <li>SETU VFX Gateway</li>
+        <li>SETU VTEP PRI Gateway</li>
+        <li>SIMADO GFX44 GSM FXS Gateway</li>
+        <li>SARVAM UMG Universal Media Gateway</li>
+        <li>VISIONPRO Digital PBX</li>
+        <li>ETERNITY NENX Hybrid IP PBX</li>
+        <li>ETERNITY PENX Hybrid IP PBX</li>
+        <li>ETERNITY GENX IP PBX System</li>
+        <li>ETERNITY MENX-LENX IP PBX System</li>
+        <li>PRASAR UCS - SPARK200</li>
+        <li>SPARSH VP210 IP Phone</li>
+        <li>SPARSH VP510E IP Phone</li>
+        <li>EON510 Premium Digital Keyphone</li>
+        <li>ANANT IP-PBX Server App</li>
+        <li>SIMADO GFX11 GSM FCT Gateway</li>
+      </ul>
+      <button class="scroll-btn right" onclick="scrollList(this, 400)">&#8250;</button>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Security Systems & Services. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const categories = document.querySelectorAll('.category');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    categories.forEach(cat => {
+      observer.observe(cat);
+    });
+
+    function scrollList(button, distance) {
+      const list = button.parentElement.querySelector('.product-list');
+      list.scrollBy({ left: distance, behavior: 'smooth' });
+    }
+
+    const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
+
+  window.addEventListener('mousemove', (e) => {
+    const { clientX: x, clientY: y } = e;
+    cursorDot.style.top = `${y}px`;
+    cursorDot.style.left = `${x}px`;
+    cursorOutline.style.top = `${y}px`;
+    cursorOutline.style.left = `${x}px`;
+  });
+
+  const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursorOutline.classList.add('hovered');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorOutline.classList.remove('hovered');
+    });
+  });
+
+  // Highlight current page nav item
+  const currentPath = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll(".main-header nav a");
+  navLinks.forEach(link => {
+    if (link.getAttribute("href").includes(currentPath)) {
+      link.classList.add("active");
+    }
+  });
+  </script>
+</body>
+</html>
