@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Plexus Solutions</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate on Scroll) CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="js/scripts.js" defer></script>
+
+
+  <style>
+
+    /* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+    :root {
+      --primary-blue: #0056b3;
+      --light-blue: #eaf3fc;
+      --dark-blue: #002d5e;
+      --accent-blue: #00a9e0;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--light-blue);
+      scroll-behavior: smooth;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  nav {
+    background-color: #000;
+    padding: 1em;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    position: relative;
+    margin: 0 1.2em;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    display: block;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #00fff7;
+  }
+  
+  nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 2.8em;
+    left: 0;
+    background-color: #1a1a1a;
+    padding: 0.5em 0;
+    border-radius: 6px;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  nav ul li:hover ul {
+    display: block;
+  }
+  
+  nav ul li ul li {
+    margin: 0;
+  }
+  
+  nav ul li ul li a {
+    padding: 0.5em 1em;
+    color: #f0f0f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav ul li ul li a:hover {
+    background-color: #00fff7;
+    color: #000;
+  }
+  
+  
+  /* Smooth dropdown fade */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+    /* Header */
+.main-header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background: #111;
+color: #fff;
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 1000;
+box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+transition: all 0.3s ease;
+}
+
+/* Logo or Title */
+.main-header .logo {
+font-size: 1.8rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: #fff;
+display: flex;
+align-items: center;
+transition: color 0.3s ease;
+} 
+
+/* Navigation links */
+.main-header nav {
+display: flex;
+gap: 2rem;
+}
+
+.main-header nav a {
+font-weight: 500;
+font-size: 1rem;
+color: #fff;
+transition: color 0.3s ease, transform 0.2s ease;
+padding: 5px 0;
+}
+
+.main-header nav a:hover {
+color: #00e0d1; /* Or your brand color */
+transform: translateY(-3px); /* Adds a nice hover lift effect */
+border-bottom: 2px solid #00e0d1; /* Adds a subtle underline effect */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+.main-header {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.main-header nav {
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.main-header .logo {
+  margin-bottom: 1rem;
+}
+}
+
+.main-header nav a.active {
+  color: #00e0d1;
+  border-bottom: 2px solid #00e0d1;
+  font-weight: 600;
+}
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px 5%;
+      gap: 40px;
+      justify-content: space-between;
+    }
+
+    .offices-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px 5%;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .office-tile {
+      flex: 1 1 400px;
+      max-width: 500px;
+      background: var(--white);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+      border-top: 5px solid var(--primary-blue);
+    }
+
+    .office-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(0, 86, 179, 0.05), rgba(0, 169, 224, 0.05));
+      transform: translateY(100%);
+      transition: transform 0.6s ease;
+      z-index: 0;
+    }
+
+    .office-tile:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15);
+    }
+
+    .office-tile:hover::before {
+      transform: translateY(0);
+    }
+
+    .office-tile h2 {
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+      z-index: 1;
+    }
+
+    .office-tile h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent-blue);
+      transition: width 0.3s ease;
+    }
+
+    .office-tile:hover h2::after {
+      width: 100px;
+    }
+
+    .office-tile p {
+      font-size: 16px;
+      margin: 15px 0;
+      color: #333;
+      position: relative;
+      z-index: 1;
+    }
+
+    .office-tile strong {
+      color: var(--dark-blue);
+    }
+
+    .office-tile a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .office-tile a:hover {
+      color: var(--primary-blue);
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      flex: 1 1 100%;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .contact-form:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-form h2 {
+      color: var(--primary-blue);
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .contact-form h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--accent-blue);
+      transition: width 0.3s ease;
+    }
+
+    .contact-form:hover h2::after {
+      width: 120px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea {
+      padding: 15px;
+      font-size: 16px;
+      border: 1px solid #ccdff1;
+      border-radius: 8px;
+      background-color: #f8fbff;
+      transition: all 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+      outline: none;
+    }
+
+    form textarea {
+      grid-column: span 2;
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    form button {
+      grid-column: span 2;
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 15px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    form button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s ease;
+    }
+
+    form button:hover {
+      background-color: #004d9e;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 77, 158, 0.3);
+    }
+
+    form button:hover::before {
+      left: 100%;
+    }
+
+    .map-container {
+      margin: 40px 5%;
+      height: 450px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      border: none;
+      position: relative;
+      transform: translateY(0);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .map-container:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .map-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(10%) contrast(1.1);
+    }
+
+    .footer-section {
+      background-color: var(--white);
+      padding: 40px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-column {
+      flex: 1 1 250px;
+    }
+
+    .footer-column h3 {
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light-blue);
+      position: relative;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--accent-blue);
+      transition: width 0.3s ease;
+    }
+
+    .footer-column:hover h3::after {
+      width: 80px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-column ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+      font-size: 18px;
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-column ul li:hover {
+      transform: translateX(5px);
+    }
+
+    .footer-column ul li:hover::before {
+      transform: translateX(3px);
+    }
+
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #444;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--primary-blue);
+    }
+
+    @media (max-width: 768px) {
+      .container, .offices-container {
+        flex-direction: column;
+      }
+      
+      .footer-section {
+        flex-direction: column;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      form textarea {
+        grid-column: span 1;
+      }
+
+      form button {
+        grid-column: span 1;
+      }
+
+      .office-tile {
+        max-width: none;
+      }
+    }
+
+    .slider-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+body {
+  cursor: none; /* Hide the default cursor */
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-dot,
+.cursor-outline {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00e0d1;
+}
+
+.cursor-outline {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #00e0d1;
+  transition: all 0.15s ease;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <h1><a href="index.html">Plexus</a></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="access-control.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+      <br>
+      <br>
+      <br>
+      <br>
+
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+      
+
+  <!-- Office Locations (Side by Side) -->
+  <section class="offices-container">
+    <!-- Head Office -->
+    <div class="office-tile" data-aos="fade-right" data-aos-delay="100" data-aos-duration="800" data-aos-easing="ease-out-cubic">
+      <h2>🏢 Head Office</h2>
+      <p><strong>Address:</strong><br>
+        RL-113, Lata Kunj, Milap Nagar, M.I.D.C.<br>
+        Dombivli (E), Dist-Thane, Maharashtra</p>
+      <p><strong>Phone:</strong> 9223581003</p>
+      <p><strong>Fax:</strong> 0251-2450796</p>
+      <p><strong>Email:</strong> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@plexussol.net" target="_blank">info@plexussol.net</a></p>
+    </div>
+
+    <!-- Branch Office -->
+    <div class="office-tile" data-aos="fade-left" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-out-cubic">
+      <h2>🏬 Branch Office</h2>
+      <p><strong>Address:</strong><br>
+        A-712, Neelkanth Business Park, 7th Floor,<br>
+        Nathani Road, Vidyavihar (W), Mumbai</p>
+      <p><strong>Phone:</strong><br>
+        022 - 2510 9036 / 2510 9063 / 2510 9098</p>
+      <p><strong>Email:</strong> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@plexussol.net" target="_blank">sales@plexussol.net</a></p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="container">
+    <!-- Contact Form -->
+    <div class="contact-form" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
+      <h2>📬 Send Us a Message</h2>
+      <form action="mailto:sales@plexussol.net" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Full Name" required />
+        <input type="email" name="email" placeholder="Your Email Address" required />
+        <input type="tel" name="phone" placeholder="Your Phone Number" />
+        <input type="text" name="subject" placeholder="Subject" />
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit" data-aos="fade-up" data-aos-delay="400">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <div class="map-container" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-aos-easing="ease-out-cubic">
+    <iframe 
+      src="https://www.google.com/maps?q=Neelkanth+Business+Park,+Vidyavihar+(W),+Mumbai&output=embed"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- Footer with Important Links -->
+  <footer class="footer-section">
+    <!-- Important Links -->
+    <div class="footer-column" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+      <h3>Important Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="access-control.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+      </ul>
+    </div>
+    
+    <!-- Contact Information -->
+    <div class="footer-column" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+      <h3>Contact Information</h3>
+      <p><strong>Head Office:</strong> 9223581003</p>
+      <br>
+      <p><strong>Branch Office:</strong> 022-25109036</p>
+      <br>
+      <p><strong>Email:</strong> <a href="mailto:info@plexussol.net">info@plexussol.net</a></p>
+    </div>
+  </footer>
+
+  <footer>
+    <p>&copy; 2025 Security Systems & Services. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    // Initialize AOS (Animation On Scroll) library
+    AOS.init({ duration: 1000 });
+
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+window.addEventListener('mousemove', (e) => {
+  const { clientX: x, clientY: y } = e;
+
+  cursorDot.style.top = `${y}px`;
+  cursorDot.style.left = `${x}px`;
+
+  cursorOutline.style.top = `${y}px`;
+  cursorOutline.style.left = `${x}px`;
+});
+
+// Select all interactive elements
+const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+
+interactiveElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursorOutline.classList.add('hovered');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorOutline.classList.remove('hovered');
+  });
+});
+
+const currentPath = window.location.pathname.split("/").pop() || "index.html";
+const navLinks = document.querySelectorAll(".main-header nav a");
+
+navLinks.forEach(link => {
+  if (link.getAttribute("href") === currentPath) {
+    link.classList.add("active");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
+
+  window.addEventListener('mousemove', (e) => {
+    const { clientX: x, clientY: y } = e;
+    cursorDot.style.top = `${y}px`;
+    cursorDot.style.left = `${x}px`;
+    cursorOutline.style.top = `${y}px`;
+    cursorOutline.style.left = `${x}px`;
+  });
+
+  const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorOutline.style.borderColor = '#00e0d1';
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".main-header nav a");
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === path) {
+      link.classList.add("active");
+    }
+  });
+});
+
+
+
+
+  </script>
+  
+</body>
+</html>

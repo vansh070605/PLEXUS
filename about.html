@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plexus Security Systems | About Us" />
+  <title>Plexus | About Us</title>
+  <link rel="stylesheet" href="css/about.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate on Scroll) CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="js/scripts.js" defer></script>
+  <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+    :root {
+      --primary-blue: #0056b3;
+      --light-blue: #eaf3fc;
+      --dark-blue: #002d5e;
+      --accent-blue: #00a9e0;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--light-blue);
+      scroll-behavior: smooth;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  
+    /* Modern card styling */
+    .about-box, .mission-box, .vision-box {
+      background: #333;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-box:hover, .mission-box:hover, .vision-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 224, 209, 0.3);
+    }
+
+    .about-video iframe {
+      width: 100%;
+      height: 600px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #00e0d1;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #00b5a0;
+      transform: scale(1.05);
+    }
+
+    .magnetic {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      will-change: transform;
+    }
+
+    /* Cursor effects */
+    #cursor, #cursor-glow {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #cursor {
+      width: 8px;
+      height: 8px;
+      background: #00e0d1;
+    }
+
+    #cursor-glow {
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 224, 209, 0.3);
+    }
+
+    .cursor-trail {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: rgba(0, 224, 209, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fadeOut 0.2s linear forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(2);
+      }
+    }
+
+    /* Responsive */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      flex: 1 1 50%;
+    }
+
+    .about-video {
+      flex: 1 1 45%;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1><a href="index.html">Plexus</a></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="access-control.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+  </div>
+
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <h1 id="typewriter"></h1>
+      <p data-aos="fade-up" class="subheading">Innovating security solutions for a safer tomorrow</p>
+    </div>
+  </section>
+
+  <section id="about-us" class="about-us">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Who We Are</h2>
+        <p>With over 20 years of experience, Plexus is at the forefront of security technology, delivering innovative solutions in office automation, surveillance, and telecom.</p>
+      </div>
+
+      <div class="about-content" data-aos="fade-up">
+        <div class="about-text">
+          <div class="about-box">
+            <h3>About Us</h3>
+            <p>Hardcore Sales and Service Organization with over two decades in Direct and Channel Sales.
+              Among the first companies to partner with National Panasonic India since 1995.
+              Specializing in Office Automation, Telecom, Surveillance, and Display Solutions.
+              Serving 3500+ companies and 100+ dealers across Western Maharashtra.
+              Focused on solving customer pain points — not just pushing products.</p>
+          </div>
+          <div class="about-box">
+            <h3>Communication Needs</h3>
+            <p>Plexus Tele Solutions Pvt. Ltd. empowers modern businesses with reliable communication tools.
+
+              We offer PBX systems, IP phones, and video conferencing tools.
+              
+              We assess infrastructure and deploy tailored telecom solutions to boost performance and productivity.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mission-vision-wrapper" data-aos="fade-up">
+        <div class="mission-box">
+          <h3>Why Choose Us – Security Focus</h3>
+          <p>Stay protected with our CCTV, Access Control, Fire Detection, and Intrusion Alarm systems.
+
+            Our team designs customized security frameworks after thorough assessment.
+            
+            We ensure safety, continuity, and peace of mind.</p>
+        </div>
+      
+        <div class="vision-box">
+          <h3>Company History</h3>
+          <p>Plexus Tele Solutions Pvt. Ltd. was founded in 1989 by Mr. Deepak Patwatkar.
+
+            With a legacy in IT and Telecom, we have consistently delivered reliable service, guidance, and tech excellence.
+            
+            We are a trusted partner for businesses across diverse industries.</p>
+        </div>
+      </div>
+      
+
+      <div class="cta-section" data-aos="fade-up">
+        <p>Get in touch with us to learn how we can help secure your future.</p>
+        <a href="access-control.html" class="cta-button magnetic">View Our Products</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Plexus Security Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 1000 });
+
+// Typewriter effect setup
+const phrases = [
+  "About Plexuss"
+];
+let i = 0;
+let j = 0;
+let currentPhrase = [];
+let isDeleting = false;
+let isEnd = false;
+
+function loop() {
+  isEnd = false;
+  document.getElementById('typewriter').innerHTML = currentPhrase.join('');
+  if (i < phrases.length) {
+    if (!isDeleting && j <= phrases[i].length) {
+      currentPhrase.push(phrases[i][j]);
+      j++;
+    }
+
+    if (isDeleting && j <= phrases[i].length) {
+      currentPhrase.pop(phrases[i][j]);
+      j--;
+    }
+
+    if (j === phrases[i].length) {
+      isEnd = true;
+      isDeleting = true;
+    }
+
+    if (isDeleting && j === 0) {
+      currentPhrase = [];
+      isDeleting = false;
+      i++;
+      if (i === phrases.length) {
+        i = 0;
+      }
+    }
+  }
+  const speed = isEnd ? 2000 : isDeleting ? 50 : 100;
+  setTimeout(loop, speed);
+}
+
+loop(); // Start the typewriter loop
+    AOS.init({ duration: 1000 });
+
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: '#00e0d1' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.6, random: true },
+        size: { value: 5, random: true, anim: { enable: true, speed: 5 } },
+        move: { enable: true, speed: 2, direction: 'none', random: true },
+        line_linked: { enable: true, distance: 150, color: '#00e0d1', opacity: 0.4, width: 1 },
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' }
+        }
+      },
+      retina_detect: true
+    });
+
+        // Initialize AOS (Animation On Scroll) library
+        AOS.init({ duration: 1000 });
+
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+window.addEventListener('mousemove', (e) => {
+  const { clientX: x, clientY: y } = e;
+
+  cursorDot.style.top = `${y}px`;
+  cursorDot.style.left = `${x}px`;
+
+  cursorOutline.style.top = `${y}px`;
+  cursorOutline.style.left = `${x}px`;
+});
+
+// Select all interactive elements
+const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+
+interactiveElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursorOutline.classList.add('hovered');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorOutline.classList.remove('hovered');
+  });
+});
+
+const currentPath = window.location.pathname.split("/").pop() || "index.html";
+const navLinks = document.querySelectorAll(".main-header nav a");
+
+navLinks.forEach(link => {
+  if (link.getAttribute("href") === currentPath) {
+    link.classList.add("active");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
+
+  window.addEventListener('mousemove', (e) => {
+    const { clientX: x, clientY: y } = e;
+    cursorDot.style.top = `${y}px`;
+    cursorDot.style.left = `${x}px`;
+    cursorOutline.style.top = `${y}px`;
+    cursorOutline.style.left = `${x}px`;
+  });
+
+  const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorOutline.style.borderColor = '#00e0d1';
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".main-header nav a");
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === path) {
+      link.classList.add("active");
+    }
+  });
+});
+  </script>
+</body>
+</html>
