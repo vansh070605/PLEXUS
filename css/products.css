@@ -1,0 +1,127 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  section {
+    padding: 2rem;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    animation: fadeInUp 1s;
+  }
+  section h2 {
+    border-bottom: 2px solid #1e1e2f;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .product {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 224, 209, 0.2);
+  }
+  
+  .product img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  
+  .product-description {
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: #333;
+  }
+  .category {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .category h2 {
+    font-size: 2rem;
+    color: #1e1e2f;
+    border-bottom: 2px solid #00e0d1;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+
+
+  body {
+    cursor: none; /* Hide the default cursor */
+  }
+  
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  .cursor-dot,
+  .cursor-outline {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00e0d1;
+  }
+  
+  .cursor-outline {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #00e0d1;
+    transition: all 0.15s ease;
+  }
+  
+  /* Footer */
+footer {
+background: #111;
+color: #aaa;
+text-align: center;
+padding: 2rem 1rem;
+font-size: 0.9rem;
+}
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
