@@ -33,9 +33,9 @@
         <div class="cursor-outline"></div>
       </div>
 
-  <section class="category" id="video-surveillance">
-    <h2>Video Surveillance</h2>
-    <div class="products-grid">
+  <section class="category" id="video-surveillance" data-aos="fade-up">
+    <h2 data-aos="fade-up">Video Surveillance</h2>
+    <div class="products-grid" data-aos="fade-up">
       <div class="product" data-aos="zoom-in"><img src="/images/vms.webp" alt="VMS Network Video Recorder" /><div class="product-description">VMS Network Video Recorder</div></div>
       <div class="product" data-aos="zoom-in"><img src="/images/project-bullet.webp" alt="Project Bullet Network Cameras" /><div class="product-description">Project Bullet Network Cameras</div></div>
       <div class="product" data-aos="zoom-in"><img src="/images/mini-bullet.webp" alt="Mini Bullet Cameras" /><div class="product-description">Mini Bullet Cameras</div></div>
@@ -48,9 +48,9 @@
     </div>
   </section>
 
-  <section class="category" id="access-control">
-    <h2>Access Control</h2>
-    <div class="products-grid">
+  <section class="category" id="access-control" data-aos="fade-up">
+    <h2 data-aos="fade-up">Access Control</h2>
+    <div class="products-grid" data-aos="fade-up">
       <div class="product" data-aos="zoom-in"><img src="/images/COSEC.webp" alt="COSEC path Reader" /><div class="product-description">COSEC path Reader</div></div>
       <div class="product" data-aos="zoom-in"><img src="/images/INPUT OUTPUT.webp" alt="COSEC arc IO800" /><div class="product-description">Input Output Controller: COSEC arc IO800</div></div>
       <div class="product" data-aos="zoom-in"><img src="/images/TWO-DOOR.png" alt="COSEC arc DC200P" /><div class="product-description">Two Door Controller: COSEC arc DC200P</div></div>
@@ -69,9 +69,9 @@
     </div>
   </section>
 
-  <section class="category" id="telecom">
-    <h2>Telecom</h2>
-    <div class="products-grid">
+  <section class="category" id="telecom" data-aos="fade-up">
+    <h2 data-aos="fade-up">Telecom</h2>
+    <div class="products-grid" data-aos="fade-up">
       <div class="product" data-aos="zoom-in"><img src="/images/sarvam UCS.webp" alt="SARVAM UCS" /><div class="product-description">Unified Communication Server - SARVAM UCS</div></div>
       <div class="product" data-aos="zoom-in"><img src="/images/VFXTH.webp" alt="SETU VFXTH" /><div class="product-description">VoIP FXO FXS Gateway - SETU VFXTH</div></div>
       <div class="product" data-aos="zoom-in"><img src="/images/varta.webp" alt="VARTA Softphone" /><div class="product-description">Softphone - VARTA</div></div>
@@ -97,51 +97,46 @@
   </footer>
 
   <script>
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate_animated', 'animate_fadeInUp');
+    // Wait for the DOM to load before initializing
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({
+        duration: 1000,    // Animation duration
+        once: false,        // Whether animation should happen only once - while scrolling down
+        offset: 100        // Offset (in px) from the original trigger point
+      });
+  
+      // Cursor animation
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorOutline = document.querySelector('.cursor-outline');
+  
+      window.addEventListener('mousemove', (e) => {
+        const { clientX: x, clientY: y } = e;
+        cursorDot.style.top = `${y}px`;
+        cursorDot.style.left = `${x}px`;
+        cursorOutline.style.top = `${y}px`;
+        cursorOutline.style.left = `${x}px`;
+      });
+  
+      const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
+      interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursorOutline.classList.add('hovered');
+        });
+        el.addEventListener('mouseleave', () => {
+          cursorOutline.classList.remove('hovered');
+        });
+      });
+  
+      // Navbar active link
+      const currentPath = window.location.pathname.split("/").pop();
+      const navLinks = document.querySelectorAll(".main-header nav a");
+      navLinks.forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("active");
         }
       });
-    }, { threshold: 0.2 });
-    sections.forEach(section => {
-      observer.observe(section);
     });
-
-    const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-
-window.addEventListener('mousemove', (e) => {
-  const { clientX: x, clientY: y } = e;
-
-  cursorDot.style.top = `${y}px`;
-  cursorDot.style.left = `${x}px`;
-
-  cursorOutline.style.top = `${y}px`;
-  cursorOutline.style.left = `${x}px`;
-});
-
-// Select all interactive elements
-const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
-
-interactiveElements.forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursorOutline.classList.add('hovered');
-  });
-  el.addEventListener('mouseleave', () => {
-    cursorOutline.classList.remove('hovered');
-  });
-});
-
-const currentPath = window.location.pathname.split("/").pop();
-  const navLinks = document.querySelectorAll(".main-header nav a");
-
-  navLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPath) {
-      link.classList.add("active");
-    }
-  });
   </script>
+  
 </body>
 </html>

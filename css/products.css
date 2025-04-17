@@ -18,6 +18,7 @@ body {
     border-bottom: 2px solid #1e1e2f;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
+    
   }
   .products-grid {
     display: grid;
