@@ -125,3 +125,59 @@ font-size: 0.9rem;
       transform: translateY(0);
     }
   }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Section & Category animation */
+section, .category {
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  /* Animate section headers */
+  .category h2 {
+    animation: slideInLeft 1s ease forwards;
+  }
+  
+  /* Animate products on page load */
+  .product {
+    animation: zoomIn 0.8s ease-in-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+  }
+  
+  /* Hover effects already included */
+  .product:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 224, 209, 0.2);
+  }
