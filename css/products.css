@@ -182,3 +182,30 @@ section, .category {
     transform: scale(1.03) translateY(-5px);
     box-shadow: 0 6px 16px rgba(0, 224, 209, 0.2);
   }
+
+  .cta-button-wrapper {
+    text-align: center;
+    margin: 3rem auto;
+    padding: 2rem 0;
+  }
+  
+  .cta-button-wrapper a {
+    display: inline-block;
+    background-color: #00e0d1;
+    color: #000;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 224, 209, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button-wrapper a:hover {
+    background-color: #00b9a7;
+    box-shadow: 0 12px 24px rgba(0, 224, 209, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  
