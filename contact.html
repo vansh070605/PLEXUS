@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Plexus | Contact Us</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <!-- AOS (Animate on Scroll) CSS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/styles.css">
-
   <script src="js/scripts.js" defer></script>
 
 
@@ -558,36 +557,61 @@ border-bottom: 2px solid #00e0d1; /* Adds a subtle underline effect */
   transition: background 0.3s;
 }
 
-body {
-  cursor: none; /* Hide the default cursor */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
 }
 
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
+/* Desktop style */
+@media (min-width: 769px) {
+  #nav-menu {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .hamburger {
+    display: none;
+  }
 }
 
-.cursor-dot,
-.cursor-outline {
-  position: absolute;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #00e0d1;
-}
-
-.cursor-outline {
-  width: 32px;
-  height: 32px;
-  border: 2px solid #00e0d1;
-  transition: all 0.15s ease;
+/* Mobile style */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #000; /* If your header is white */
+  }
+  
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    padding: 1rem;
+    z-index: 999;
+  }
+  
+  #nav-menu.show {
+    display: flex;
+  }
+  
+  #nav-menu a {
+    margin: 0.5rem 0;
+    text-align: right;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+  }
 }
 
 
@@ -598,7 +622,12 @@ body {
 
   <header class="main-header">
     <h1><a href="index.html">Plexus Tele Solutions Pvt Ltd</a></h1>
-    <nav>
+    
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+    
+    <nav id="nav-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
@@ -610,11 +639,6 @@ body {
       <br>
       <br>
       <br>
-
-    <div class="custom-cursor">
-        <div class="cursor-dot"></div>
-        <div class="cursor-outline"></div>
-    </div>
       
 
   <!-- Office Locations (Side by Side) -->
@@ -702,18 +726,6 @@ body {
     // Initialize AOS (Animation On Scroll) library
     AOS.init({ duration: 1000 });
 
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-
-window.addEventListener('mousemove', (e) => {
-  const { clientX: x, clientY: y } = e;
-
-  cursorDot.style.top = `${y}px`;
-  cursorDot.style.left = `${x}px`;
-
-  cursorOutline.style.top = `${y}px`;
-  cursorOutline.style.left = `${x}px`;
-});
 
 // Select all interactive elements
 const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
@@ -727,36 +739,15 @@ interactiveElements.forEach(el => {
   });
 });
 
-const currentPath = window.location.pathname.split("/").pop() || "index.html";
-const navLinks = document.querySelectorAll(".main-header nav a");
+const currentPath = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll(".main-header nav a");
 
-navLinks.forEach(link => {
-  if (link.getAttribute("href") === currentPath) {
-    link.classList.add("active");
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const cursorDot = document.querySelector('.cursor-dot');
-  const cursorOutline = document.querySelector('.cursor-outline');
-
-  window.addEventListener('mousemove', (e) => {
-    const { clientX: x, clientY: y } = e;
-    cursorDot.style.top = `${y}px`;
-    cursorDot.style.left = `${x}px`;
-    cursorOutline.style.top = `${y}px`;
-    cursorOutline.style.left = `${x}px`;
+  navLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("active");
+    }
   });
 
-  const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-    });
-    el.addEventListener('mouseleave', () => {
-      cursorOutline.style.borderColor = '#00e0d1';
-    });
-  });
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname.split("/").pop() || "index.html";
@@ -770,7 +761,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+    // Hamburger menu toggle
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
 
+hamburger.addEventListener('click', function () {
+  navMenu.classList.toggle('show');
+});
 
 
   </script>

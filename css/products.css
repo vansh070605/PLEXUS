@@ -74,38 +74,6 @@ body {
     position: relative;
   }
 
-
-  body {
-    cursor: none; /* Hide the default cursor */
-  }
-  
-  .custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-  }
-  
-  .cursor-dot,
-  .cursor-outline {
-    position: absolute;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #00e0d1;
-  }
-  
-  .cursor-outline {
-    width: 32px;
-    height: 32px;
-    border: 2px solid #00e0d1;
-    transition: all 0.15s ease;
-  }
   
   /* Footer */
 footer {
@@ -208,4 +176,60 @@ section, .category {
     transform: translateY(-2px);
   }
   
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  /* Desktop style */
+  @media (min-width: 769px) {
+    #nav-menu {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .hamburger {
+      display: none;
+    }
+  }
+  
+  /* Mobile style */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #000; /* If your header is white */
+    }
+    
+    #nav-menu {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 1rem;
+      z-index: 999;
+    }
+    
+    #nav-menu.show {
+      display: flex;
+    }
+    
+    #nav-menu a {
+      margin: 0.5rem 0;
+      text-align: right;
+      font-weight: 600;
+      color: #333;
+      text-decoration: none;
+    }
+  }
   

@@ -15,7 +15,12 @@
 <body>
   <header class="main-header">
     <h1><a href="index.html">Plexus Tele Solutions Pvt Ltd</a></h1>
-    <nav>
+    
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+    
+    <nav id="nav-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
@@ -23,15 +28,11 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+  
       <br>
       <br>
       <br>
       <br>
-
-      <div class="custom-cursor">
-        <div class="cursor-dot"></div>
-        <div class="cursor-outline"></div>
-      </div>
 
   <section class="category" id="video-surveillance" data-aos="fade-up">
     <h2 data-aos="fade-up">Video Surveillance</h2>
@@ -110,26 +111,7 @@
       });
   
       // Cursor animation
-      const cursorDot = document.querySelector('.cursor-dot');
-      const cursorOutline = document.querySelector('.cursor-outline');
-  
-      window.addEventListener('mousemove', (e) => {
-        const { clientX: x, clientY: y } = e;
-        cursorDot.style.top = `${y}px`;
-        cursorDot.style.left = `${x}px`;
-        cursorOutline.style.top = `${y}px`;
-        cursorOutline.style.left = `${x}px`;
-      });
-  
-      const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
-      interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          cursorOutline.classList.add('hovered');
-        });
-        el.addEventListener('mouseleave', () => {
-          cursorOutline.classList.remove('hovered');
-        });
-      });
+
   
       // Navbar active link
       const currentPath = window.location.pathname.split("/").pop();
@@ -140,6 +122,16 @@
         }
       });
     });
+    // Hamburger menu toggle
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', function () {
+  navMenu.classList.toggle('show');
+});
+
+
   </script>
   
 </body>

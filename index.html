@@ -13,7 +13,12 @@
 <body>
   <header class="main-header">
     <h1><a href="index.html">Plexus Tele Solutions Pvt Ltd</a></h1>
-    <nav>
+    
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+    
+    <nav id="nav-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
@@ -22,11 +27,6 @@
     </nav>
   </header>
 
-  <div class="custom-cursor">
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-  </div>
-  
 
   <section class="hero">
     <div id="particles-js"></div> <!-- Background for particles.js -->
@@ -54,15 +54,7 @@
     <section data-aos="fade-up">
       <h2 class="section-title">Our Products</h2>
       <div class="cards">
-        <a class="card"><h3>IP EPABX / ANALOGUE EPABX</h3></a>
-        <a class="card"><h3>VIDEO CONFERENCING</h3></a>
-        <a class="card"><h3>AUDIO CONFERENCING</h3></a>
-        <a class="card"><h3>PROJECTORS</h3></a>
-        <a class="card"><h3>PA SYSTEMS</h3></a>
-        <a class="card"><h3>AV ACCESSORIES</h3></a>
-        <a class="card"><h3>BULLET NETWORK CAMERAS</h3></a>
-        <a class="card"><h3>CCTV SURVEILLANCE</h3></a>
-        <a class="card"><h3>ATTENDANCE & ACCESS CONTROL</h3></a>
+        <a href="products.html" class="card"><h3>CLICK HERE TO VIEW OUR PRODUCTS</h3></a>
       </div>
     </section>
 
@@ -325,6 +317,16 @@ const currentPath = window.location.pathname.split("/").pop();
       link.classList.add("active");
     }
   });
+
+  
+    // Hamburger menu toggle
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', function () {
+  navMenu.classList.toggle('show');
+});
 
   </script>
   

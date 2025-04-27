@@ -17,6 +17,8 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/styles.css">
 
   <script src="js/scripts.js" defer></script>
   <style>
@@ -104,38 +106,6 @@
       will-change: transform;
     }
 
-    /* Cursor effects */
-    #cursor, #cursor-glow {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    #cursor {
-      width: 8px;
-      height: 8px;
-      background: #00e0d1;
-    }
-
-    #cursor-glow {
-      width: 40px;
-      height: 40px;
-      background: rgba(0, 224, 209, 0.3);
-    }
-
-    .cursor-trail {
-      position: fixed;
-      width: 8px;
-      height: 8px;
-      background: rgba(0, 224, 209, 0.6);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      animation: fadeOut 0.2s linear forwards;
-    }
-
     @keyframes fadeOut {
       to {
         opacity: 0;
@@ -200,7 +170,12 @@
 <body>
   <header class="main-header">
     <h1><a href="index.html">Plexus Tele Solutions Pvt Ltd</a></h1>
-    <nav>
+    
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+    
+    <nav id="nav-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
@@ -208,11 +183,6 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-
-  <div class="custom-cursor">
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-  </div>
 
   <section class="hero">
     <div id="particles-js"></div>
@@ -273,6 +243,7 @@
   </footer>
 
   <script>
+    
     AOS.init({ duration: 1000 });
 
 // Typewriter effect setup
@@ -343,62 +314,6 @@ loop(); // Start the typewriter loop
         // Initialize AOS (Animation On Scroll) library
         AOS.init({ duration: 1000 });
 
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-
-window.addEventListener('mousemove', (e) => {
-  const { clientX: x, clientY: y } = e;
-
-  cursorDot.style.top = `${y}px`;
-  cursorDot.style.left = `${x}px`;
-
-  cursorOutline.style.top = `${y}px`;
-  cursorOutline.style.left = `${x}px`;
-});
-
-// Select all interactive elements
-const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
-
-interactiveElements.forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursorOutline.classList.add('hovered');
-  });
-  el.addEventListener('mouseleave', () => {
-    cursorOutline.classList.remove('hovered');
-  });
-});
-
-const currentPath = window.location.pathname.split("/").pop() || "index.html";
-const navLinks = document.querySelectorAll(".main-header nav a");
-
-navLinks.forEach(link => {
-  if (link.getAttribute("href") === currentPath) {
-    link.classList.add("active");
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const cursorDot = document.querySelector('.cursor-dot');
-  const cursorOutline = document.querySelector('.cursor-outline');
-
-  window.addEventListener('mousemove', (e) => {
-    const { clientX: x, clientY: y } = e;
-    cursorDot.style.top = `${y}px`;
-    cursorDot.style.left = `${x}px`;
-    cursorOutline.style.top = `${y}px`;
-    cursorOutline.style.left = `${x}px`;
-  });
-
-  const interactiveElements = document.querySelectorAll('a, button, .btn, input[type="submit"]');
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-    });
-    el.addEventListener('mouseleave', () => {
-      cursorOutline.style.borderColor = '#00e0d1';
-    });
-  });
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname.split("/").pop() || "index.html";
   const navLinks = document.querySelectorAll(".main-header nav a");
@@ -410,6 +325,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({
+        duration: 1000,    // Animation duration
+        once: false,        // Whether animation should happen only once - while scrolling down
+        offset: 100        // Offset (in px) from the original trigger point
+      });
+  
+      // Cursor animation
+
+  
+      // Navbar active link
+      const currentPath = window.location.pathname.split("/").pop();
+      const navLinks = document.querySelectorAll(".main-header nav a");
+      navLinks.forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("active");
+        }
+      });
+    });
+    // Hamburger menu toggle
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', function () {
+  navMenu.classList.toggle('show');
+});
+
+
   </script>
 </body>
 </html>

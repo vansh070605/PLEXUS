@@ -453,39 +453,8 @@
     z-index: 0;
   }
   
-  /* Style the custom cursor */
-#cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background-color: #00e0d1;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: all 0.2s ease;
-    z-index: 9999;
-  }
-  
-  /* Cursor enlarges on hovering interactive elements */
-  a:hover #cursor,
-  button:hover #cursor,
-  .cta-button:hover #cursor {
-    width: 40px;
-    height: 40px;
-    background-color: #009f96;
-  }
 
-  /* Cursor trail styles */
-.cursor-trail {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background-color: #00e0d1;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    animation: trailAnimation 0.2s forwards;
-  }
+
   
   /* Animation for the trail */
   @keyframes trailAnimation {
@@ -499,74 +468,9 @@
     }
   }
 
-  /* Glowing cursor effect */
-#cursor-glow {
-    position: fixed;
-    width: 18px;
-    height: 18px;
-    background-color: #00e0d1;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    box-shadow: 0 0 10px #00e0d1;
-    transition: all 0.3s ease;
-  }
-  
-  /* Glow effect on hover */
-  a:hover #cursor-glow,
-  button:hover #cursor-glow,
-  .cta-button:hover #cursor-glow {
-    box-shadow: 0 0 25px #009f96;
-    transform: scale(1.3);
-  }
-  
 
-  body {
-    cursor: none; /* Hide the default cursor */
-  }
-  
-  .custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-  }
-  
-  .cursor-dot,
-  .cursor-outline {
-    position: absolute;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #00e0d1;
-  }
-  
-  .cursor-outline {
-    width: 32px;
-    height: 32px;
-    border: 2px solid #00e0d1;
-    transition: all 0.15s ease;
-  }
 
-  .slider-btn {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.3s;
-  }
-  
-  body {
-    cursor: none; /* Hide the default cursor */
-  }
+
   
   .custom-cursor {
     position: fixed;

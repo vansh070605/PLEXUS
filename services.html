@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/scripts.js" defer></script>
+
+  <title>Plexus Services</title>
+  <style>
+    :root {
+      --primary-blue: #0077cc;
+      --accent-blue: #00aaff;
+      --deep-blue: #003366;
+      --light-blue: #e6f2ff;
+      --bg-blue: #f5f9ff;
+      --white: #ffffff;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-blue);
+      color: var(--deep-blue);
+      perspective: 1000px;
+      overflow-x: hidden;
+    }
+
+    .services-section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    /* Background animated shapes */
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      filter: blur(40px);
+      z-index: -1;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .bg-shape-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--primary-blue);
+      top: 10%;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .bg-shape-2 {
+      width: 200px;
+      height: 200px;
+      background: var(--accent-blue);
+      top: 40%;
+      right: -50px;
+      animation-delay: 3s;
+    }
+
+    .bg-shape-3 {
+      width: 250px;
+      height: 250px;
+      background: #5cb8e4;
+      bottom: 10%;
+      left: 10%;
+      animation-delay: 6s;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 50px;
+      color: var(--primary-blue);
+      animation: fadeInDown 1.2s ease;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: var(--accent-blue);
+      margin: 10px auto 0;
+      animation: lineGrow 1.5s forwards ease-out 0.5s;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .service-tile {
+      width: calc(50% - 15px);
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 102, 204, 0.1);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .service-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--accent-blue);
+      transition: height 0.5s ease;
+    }
+
+    .service-tile:hover::before {
+      height: 100%;
+    }
+
+    .top-tile {
+      animation: fadeIn 1s ease;
+    }
+
+    .bottom-tile {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .bottom-tile.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-tile:nth-child(1) { animation-delay: 0.1s; }
+    .service-tile:nth-child(2) { animation-delay: 0.3s; }
+
+    .service-tile:hover {
+      transform: scale(1.02) translateY(-5px);
+      box-shadow: 0 16px 32px rgba(0, 102, 204, 0.2);
+    }
+
+    .service-image {
+      height: 180px;
+      background: linear-gradient(135deg, #dceeff 0%, #b0d8ff 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-image::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(45deg) translateX(-150%);
+      transition: transform 0.6s ease;
+    }
+
+    .service-tile:hover .service-image::after {
+      transform: rotate(45deg) translateX(150%);
+    }
+
+    .service-content {
+      padding: 20px;
+      position: relative;
+    }
+
+    .service-title {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: var(--primary-blue);
+      transition: transform 0.3s ease;
+    }
+
+    .service-tile:hover .service-title {
+      transform: translateX(10px);
+    }
+
+    .service-description {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #333;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .service-tile:hover .service-description {
+      opacity: 0.8;
+      transform: translateX(5px);
+    }
+
+    /* Icons for each service - use pseudo elements */
+    .service-image::before {
+      font-family: Arial, sans-serif;
+      font-size: 3rem;
+      opacity: 0.2;
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .service-tile:hover .service-image::before {
+      transform: scale(1.2);
+      opacity: 0.4;
+    }
+
+    .service-tile:nth-child(1) .service-image::before { content: "📞"; }
+    .service-tile:nth-child(2) .service-image::before { content: "🎬"; }
+    .service-tile:nth-child(3) .service-image::before { content: "🤖"; }
+    .service-tile:nth-child(4) .service-image::before { content: "🔒"; }
+
+    /* 3D Diagram Styles */
+    .diagram-container {
+      margin-top: 100px;
+      margin-bottom: 60px;
+      height: 450px;
+      position: relative;
+      transform-style: preserve-3d;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .diagram-container.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .diagram-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(15deg);
+    }
+
+    .center-node {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateZ(20px);
+      background: linear-gradient(135deg, #ffffff, #f0f8ff);
+      border: 2px solid #0077cc;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.3rem;
+      box-shadow: 0 10px 25px rgba(0, 119, 204, 0.3);
+      z-index: 10;
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .center-node::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 60px;
+      z-index: -1;
+      animation: pulse 3s infinite;
+    }
+
+    .node {
+      position: absolute;
+      background: linear-gradient(135deg, #e6f2ff, #b3d9ff);
+      border-radius: 16px;
+      padding: 20px;
+      width: 130px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.1rem;  
+      color: #003366;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 102, 204, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .node:hover {
+      background: linear-gradient(135deg, #d1e8ff, #a0cfff);
+      box-shadow: 0 12px 35px rgba(0, 102, 204, 0.3);
+    }
+
+    .node.active {
+      background: linear-gradient(135deg, #c2e0ff, #80baff);
+      box-shadow: 0 0 20px rgba(0, 119, 204, 0.5);
+      animation: pulse-node 1s infinite;
+    }
+
+    .telecom {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    .security {
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+    }
+
+    .audio-video {
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+    }
+
+    .automation {
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    .connection-line {
+      position: absolute;
+      background-color: #0077cc;
+      z-index: 1;
+    }
+
+    .vertical-line {
+      width: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .horizontal-line {
+      height: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .top-line {
+      top: 99px;
+      height: calc(50% - 90px);
+    }
+
+    .bottom-line {
+      bottom: 90px;
+      height: calc(50% - 90px);
+    }
+
+    .left-line {
+      left: 100px;
+      width: calc(50% - 100px);
+    }
+
+    .right-line {
+      right: 100px;
+      width: calc(50% - 100px);
+    }
+
+    .plexus-logo {
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .plexus-logo .x {
+      color: #e74c3c;
+      position: relative;
+      display: inline-block;
+      animation: rotateLetter 6s infinite;
+    }
+
+    /* Footer Section */
+    .footer-section {
+      background: linear-gradient(to bottom, var(--bg-blue), #fff);
+      padding: 40px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      position: relative;
+      margin-top: 80px;
+    }
+
+    .footer-section::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: var(--white);
+      transform: skewY(-1.5deg);
+    }
+
+    .footer-column {
+      flex: 1 1 250px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .footer-column.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .footer-column h3 {
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #d9e9f7;
+      position: relative;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--accent-blue);
+      transition: width 0.3s ease;
+    }
+
+    .footer-column:hover h3::after {
+      width: 80px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-column ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+      font-size: 18px;
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-column ul li:hover {
+      transform: translateX(5px);
+    }
+
+    .footer-column ul li:hover::before {
+      transform: translateX(3px);
+    }
+
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #444;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* Fixed nav dots */
+    .nav-dots {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 100;
+    }
+
+    .nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(0, 119, 204, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .nav-dot.active {
+      background: var(--primary-blue);
+      transform: scale(1.3);
+    }
+
+    /* New animations */
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(5deg);
+      }
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    @keyframes lineGrow {
+      from { width: 0; }
+      to { width: 100px; }
+    }
+
+    @keyframes rotateLetter {
+      0%, 80%, 100% {
+        transform: rotateY(0);
+      }
+      20%, 60% {
+        transform: rotateY(180deg);
+      }
+    }
+
+    /* Original animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes pulse-node {
+      0% {
+        box-shadow: 0 0 15px rgba(0, 119, 204, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(0, 119, 204, 0.6);
+      }
+      100% {
+        box-shadow: 0 0 15px rgba(0, 119, 204, 0.4);
+      }
+    }
+
+    @keyframes highlight-line {
+      0% {
+        background-color: #0077cc;
+      }
+      50% {
+        background-color: #00aaff;
+        box-shadow: 0 0 10px #00aaff;
+      }
+      100% {
+        background-color: #0077cc;
+      }
+    }
+    
+    /* Reveal animation for elements as you scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @media (max-width: 768px) {
+      .service-tile {
+        width: 100%;
+      }
+      
+      .diagram-container {
+        height: 350px;
+        transform: scale(0.8);
+      }
+      
+      .diagram-wrapper {
+        transform: rotateX(15deg) scale(0.7);
+      }
+      
+      .node {
+        width: 110px;
+        height: 70px;
+        font-size: 0.9rem;
+      }
+      
+      .nav-dots {
+        display: none;
+      }
+      
+      .footer-section {
+        flex-direction: column;
+      }
+    }
+    /* Header */
+.main-header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background: #111;
+color: #fff;
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 1000;
+box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+transition: all 0.3s ease;
+}
+
+/* Logo or Title */
+.main-header .logo {
+font-size: 1.8rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: #fff;
+display: flex;
+align-items: center;
+transition: color 0.3s ease;
+}
+
+.main-header .logo:hover {
+color: #ff5722; /* Or your brand color */
+}
+
+/* Navigation links */
+.main-header nav {
+display: flex;
+gap: 2rem;
+}
+
+.main-header nav a {
+font-weight: 500;
+font-size: 1rem;
+color: #fff;
+transition: color 0.3s ease, transform 0.2s ease;
+padding: 5px 0;
+}
+
+.main-header nav a:hover {
+color: #00e0d1; /* Or your brand color */
+transform: translateY(-3px); /* Adds a nice hover lift effect */
+border-bottom: 2px solid #00e0d1; /* Adds a subtle underline effect */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+.main-header {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.main-header nav {
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.main-header .logo {
+  margin-bottom: 1rem;
+}
+}
+
+.main-header nav a.active {
+  color: #00e0d1;
+  border-bottom: 2px solid #00e0d1;
+  font-weight: 600;
+}
+
+  /* Navigation styles */
+  nav {
+    background-color: #000;
+    padding: 1em;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    position: relative;
+    margin: 0 1.2em;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    display: block;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #00fff7;
+  }
+  
+  nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 2.8em;
+    left: 0;
+    background-color: #1a1a1a;
+    padding: 0.5em 0;
+    border-radius: 6px;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  nav ul li:hover ul {
+    display: block;
+  }
+  
+  nav ul li ul li {
+    margin: 0;
+  }
+  
+  nav ul li ul li a {
+    padding: 0.5em 1em;
+    color: #f0f0f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav ul li ul li a:hover {
+    background-color: #00fff7;
+    color: #000;
+  }
+  
+  /* Smooth dropdown fade */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+/* Navigation links */
+.main-header nav {
+display: flex;
+gap: 2rem;
+}
+
+.main-header nav a {
+font-weight: 500;
+font-size: 1rem;
+color: #fff;
+transition: color 0.3s ease, transform 0.2s ease;
+padding: 5px 0;
+}
+
+.main-header nav a:hover {
+color: #00e0d1; /* Or your brand color */
+transform: translateY(-3px); /* Adds a nice hover lift effect */
+border-bottom: 2px solid #00e0d1; /* Adds a subtle underline effect */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+.main-header {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.main-header nav {
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.main-header .logo {
+  margin-bottom: 1rem;
+}
+}
+
+.main-header nav a.active {
+  color: #00e0d1;
+  border-bottom: 2px solid #00e0d1;
+  font-weight: 600;
+}
+
+.main-header .logo {
+font-size: 1.8rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: #fff;
+display: flex;
+align-items: center;
+transition: color 0.3s ease;
+}
+
+.main-header .logo:hover {
+color: #ff5722; /* Or your brand color */
+}
+
+/* Navigation links */
+.main-header nav {
+display: flex;
+gap: 2rem;
+}
+
+.main-header nav a {
+font-weight: 500;
+font-size: 1rem;
+color: #fff;
+transition: color 0.3s ease, transform 0.2s ease;
+padding: 5px 0;
+}
+
+.main-header nav a:hover {
+color: #00e0d1; /* Or your brand color */
+transform: translateY(-3px); /* Adds a nice hover lift effect */
+border-bottom: 2px solid #00e0d1; /* Adds a subtle underline effect */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+.main-header {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.main-header nav {
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.main-header .logo {
+  margin-bottom: 1rem;
+}
+}
+
+.main-header nav a.active {
+  color: #00e0d1;
+  border-bottom: 2px solid #00e0d1;
+  font-weight: 600;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Desktop style */
+@media (min-width: 769px) {
+  #nav-menu {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Mobile style */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #000; /* If your header is white */
+  }
+  
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    padding: 1rem;
+    z-index: 999;
+  }
+  
+  #nav-menu.show {
+    display: flex;
+  }
+  
+  #nav-menu a {
+    margin: 0.5rem 0;
+    text-align: right;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1><a href="index.html">Plexus Tele Solutions Pvt Ltd</a></h1>
+    
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+    
+    <nav id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+          <br>
+          <br>
+          <br>
+          <br>
+  <div class="nav-dots">
+    <div class="nav-dot active" data-section="title"></div>
+    <div class="nav-dot" data-section="services"></div>
+    <div class="nav-dot" data-section="diagram"></div>
+    <div class="nav-dot" data-section="footer"></div>
+  </div>
+
+  <section class="services-section">
+    <!-- Animated background shapes -->
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+    
+    <h1 class="section-title" id="title">Our Services</h1>
+    
+    <div class="services-grid" id="services">
+      <div class="service-tile top-tile reveal">
+        <div class="service-image">TELECOM</div>
+        <div class="service-content">
+          <h2 class="service-title">Telecom</h2>
+          <p class="service-description">We design robust communication networks, IP telephony, and call center solutions.</p>
+        </div>
+      </div>
+      <div class="service-tile top-tile reveal">
+        <div class="service-image">AUDIO VIDEO</div>
+        <div class="service-content">
+          <h2 class="service-title">Audio Video Solutions</h2>
+          <p class="service-description">Integrated AV systems for conferencing, multimedia, and control automation.</p>
+        </div>
+      </div>
+      <div class="service-tile bottom-tile">
+        <div class="service-image">AUTOMATION</div>
+        <div class="service-content">
+          <h2 class="service-title">Automation Framework</h2>
+          <p class="service-description">Smart environments like training rooms, video walls, and mini theatres.</p>
+        </div>
+      </div>
+      <div class="service-tile bottom-tile">
+        <div class="service-image">SECURITY</div>
+        <div class="service-content">
+          <h2 class="service-title">Security / CCTV</h2>
+          <p class="service-description">Surveillance, biometric access, and attendance management solutions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Static 3D Diagram with Connected Lines -->
+    <div class="diagram-container" id="diagram">
+      <div class="diagram-wrapper">
+        <div class="center-node">
+          <span class="plexus-logo">PLE<span class="x">X</span>US</span>
+        </div>
+        
+        <div class="node telecom" data-line="top-line">TELECOM</div>
+        <div class="node security" data-line="left-line">SECURITY</div>
+        <div class="node audio-video" data-line="right-line">AUDIO VIDEO SOLUTIONS</div>
+        <div class="node automation" data-line="bottom-line">AUTOMATION FRAMEWORK</div>
+        
+        <div class="connection-line vertical-line top-line"></div>
+        <div class="connection-line vertical-line bottom-line"></div>
+        <div class="connection-line horizontal-line left-line"></div>
+        <div class="connection-line horizontal-line right-line"></div>
+      </div>
+    </div>
+    
+    <footer class="footer-section" id="footer">
+      <!-- Important Links -->
+      <div class="footer-column reveal">
+        <h3>Important Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="products.html">Products</a></li>
+        </ul>
+      </div>
+      
+    
+      <div class="footer-column reveal">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="#">Telecom Solutions</a></li>
+          <li><a href="#">Audio Video Systems</a></li>
+          <li><a href="#">Building Automation</a></li>
+          <li><a href="#">Security Systems</a></li>
+        </ul>
+      </div>
+      
+     
+    </footer>
+  </section>
+
+  <script>
+    // Initial reveal for top elements
+    document.addEventListener('DOMContentLoaded', function() {
+      // Trigger reveals for initial visible elements
+      const initialReveals = document.querySelectorAll('.reveal');
+      initialReveals.forEach(el => {
+        el.classList.add('active');
+      });
+    });
+    
+    // Add scroll event listener for animations
+    window.addEventListener('scroll', function() {
+      const bottomTiles = document.querySelectorAll('.bottom-tile');
+      const diagramContainer = document.querySelector('.diagram-container');
+      const footerColumns = document.querySelectorAll('.footer-column');
+      const reveals = document.querySelectorAll('.reveal:not(.active)');
+      
+      // Calculate threshold positions
+      const bottomTilesThreshold = document.querySelector('.top-tile').getBoundingClientRect().bottom;
+      const diagramThreshold = document.querySelector('.services-grid').getBoundingClientRect().bottom;
+      const footerThreshold = document.querySelector('.footer-section').getBoundingClientRect().top;
+      
+      // Update navigation dots
+      updateNavDots();
+      
+      // Check if bottom tiles should be visible
+      if (window.innerHeight > bottomTilesThreshold + 100) {
+        bottomTiles.forEach((tile, index) => {
+          setTimeout(() => {
+            tile.classList.add('visible');
+          }, index * 200); // Stagger animation
+        });
+      }
+      
+      // Check if diagram should be visible
+      if (window.innerHeight > diagramThreshold) {
+        diagramContainer.classList.add('visible');
+      }
+      
+      // Check if footer columns should be visible
+      if (window.innerHeight > footerThreshold) {
+        footerColumns.forEach((column, index) => {
+          setTimeout(() => {
+            column.classList.add('visible');
+          }, index * 150); // Stagger animation
+        });
+      }
+      
+      // Reveal elements as they come into view
+      reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          el.classList.add('active');
+        }
+      });
+    });
+    
+    // Update navigation dots based on scroll position
+    function updateNavDots() {
+      const sections = ['title', 'services', 'diagram', 'footer'];
+      let current = '';
+      
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if(element) {
+          const rect = element.getBoundingClientRect();
+          if(rect.top <= window.innerHeight/2 && rect.bottom >= window.innerHeight/2) {
+            current = section;
+          }
+        }
+      });
+      
+      document.querySelectorAll('.nav-dot').forEach(dot => {
+        dot.classList.remove('active');
+        if(dot.getAttribute('data-section') === current) {
+          dot.classList.add('active');
+        }
+      });
+    }
+    
+    // Smooth scroll to section when clicking nav dots
+    document.querySelectorAll('.nav-dot').forEach(dot => {
+      dot.addEventListener('click', function() {
+        const section = this.getAttribute('data-section');
+        const element = document.getElementById(section);
+        if(element) {
+          element.scrollIntoView({behavior: 'smooth'});
+        }
+      });
+    });
+    
+    // Trigger scroll check on page load
+    window.addEventListener('load', function() {
+      window.dispatchEvent(new Event('scroll'));
+      
+      // Add automatic animation to the X in PLEXUS logo
+      const logoX = document.querySelector('.plexus-logo .x');
+      if(logoX) {
+        setInterval(() => {
+          logoX.style.animation = 'none';
+          void logoX.offsetWidth; // Trigger reflow
+          logoX.style.animation = 'rotateLetter 6s infinite';
+        }, 6000);
+      }
+    });
+    
+    // Add click events to nodes for diagram
+    document.querySelectorAll('.node').forEach(node => {
+      node.addEventListener('click', function() {
+        // Remove active class from all nodes
+        document.querySelectorAll('.node').forEach(n => {
+          n.classList.remove('active');
+        });
+        
+        // Reset all connection lines
+        document.querySelectorAll('.connection-line').forEach(line => {
+          line.style.animation = '';
+          line.style.backgroundColor = '#0077cc';
+          line.style.boxShadow = 'none';
+        });
+        
+        // Add active class to current node
+        this.classList.add('active');
+        
+        // Highlight the connected line
+        const lineClass = this.getAttribute('data-line');
+        const connectedLine = document.querySelector('.' + lineClass);
+        connectedLine.style.animation = 'highlight-line 1.5s infinite';
+        connectedLine.style.backgroundColor = '#00aaff';
+        connectedLine.style.boxShadow = '0 0 10px rgba(0, 170, 255, 0.7)';
+      });
+    });
+            // Initialize AOS (Animation On Scroll) library
+            AOS.init({ duration: 1000 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".main-header nav a");
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === path) {
+      link.classList.add("active");
+    }
+  });
+});
+
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', function () {
+  navMenu.classList.toggle('show');
+});
+
+  </script>
+  
+  <footer>
+    <p>&copy; 2025 Plexus Security Systems. All rights reserved.</p>
+  </footer>
+</body>
+</html>
