@@ -202,7 +202,7 @@ margin: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 255, 247, 0.1);
@@ -247,7 +247,7 @@ margin: auto;
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #d3d3d3;
+  color: #000;
   margin-bottom: 1.5rem;
   text-align: center;
 }
